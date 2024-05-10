@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: black;
+}
+body {
+  @apply text-white bg-black;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+.input {
+  @apply text-white bg-[#202020];
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #202020;
+}
+
+.btn-primary {
+  @apply text-black;
+}
+
+.btn-disabled {
+  @apply bg-[#00625E] !important;
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.snap-enter-active,
+.snap-leave-active {
+  transition: all 0.3s;
+}
+
+.snap-enter-from,
+.snap-leave-to {
+  opacity: 0;
+}
+
+/* ignore */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: textfield; /* Chrome, Safari, Opera */
+  appearance: textfield; /* Standard */
+}
+
+.snap-enter-active .inner,
+.snap-leave-active .inner {
+  transition: all 0.2s;
+}
+
+.snap-enter-active .inner {
+  transition-delay: 0.15s;
+}
+
+.snap-enter-from .inner,
+.snap-leave-to .inner {
+  transform: scale(0);
+  opacity: 0;
+}
+@media only screen and (max-width: 767px) {
+  .snap-enter-from .inner,
+  .snap-leave-to .inner {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
